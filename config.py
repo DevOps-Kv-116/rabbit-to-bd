@@ -32,11 +32,11 @@ POSTGRES_DB = getEnvVariable("POSTGRES_DB")
 #MSSQL_PW = getEnvVariable("MSSQL_PW")
 #MSSQL_DB = getEnvVariable("MSSQL_DB")
 
-#RABBIT_HOST = getEnvVariable("RABBIT_HOST")
-#RABBIT_PORT = getEnvVariable("RABBIT_PORT")
-#RABBIT_USER = getEnvVariable("RABBIT_USER")
-#RABBIT_PW = getEnvVariable("RABBIT_PW")
-#RABBIT_QUEUE = getEnvVariable("RABBIT_QUEUE")
+RABBIT_HOST = getEnvVariable("RABBIT_HOST")
+RABBIT_PORT = getEnvVariable("RABBIT_PORT")
+RABBIT_USER = getEnvVariable("RABBIT_USER")
+RABBIT_PW = getEnvVariable("RABBIT_PW")
+RABBIT_QUEUE = getEnvVariable("RABBIT_QUEUE")
 
 
 POSTGRES_URL = f'postgresql://{POSTGRES_USER}:{POSTGRES_PW}@{POSTGRES_HOST}:{POSTGRES_PORT}/{POSTGRES_DB}'
