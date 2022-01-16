@@ -11,12 +11,12 @@ pipeline {
         }
         stage('Build') { 
             steps {
-                sh '''docker build -t gcr.io/pasha-testproject-12345/rabbit-to-db .'''
+                sh '''docker build -t gcr.io/${TF_VAR_project}/rabbit-to-db .'''
             }
         }
         stage('Push') { 
             steps {
-                sh '''docker push "gcr.io/pasha-testproject-12345/rabbit-to-db"'''
+                sh '''docker push "gcr.io/${TF_VAR_project}/rabbit-to-db"'''
             }
         }
     }
