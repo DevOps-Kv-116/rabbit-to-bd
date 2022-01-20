@@ -19,5 +19,10 @@ pipeline {
                 sh '''docker push "gcr.io/${TF_VAR_project}/rabbit-to-db"'''
             }
         }
+        stage('Deploy') {
+            steps {
+                sh '''./deploy.sh''' 
+            }
+        }
     }
 }

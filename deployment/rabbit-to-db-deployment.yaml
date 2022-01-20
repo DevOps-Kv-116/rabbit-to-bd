@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: rabbit-to-db
+    deployed: ${TF_VAR_project}
+  name: rabbit-to-db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rabbit-to-db
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: rabbit-to-db
+    spec:
+      containers:
+        - env:
+            - name: POSTGRES_DB
+              value: issuedb
+            - name: POSTGRES_HOST
+              value: ${db_host}
+            - name: POSTGRES_PORT
+              value: "5432"
+            - name: POSTGRES_PW
+              value: ${db_pass}
+            - name: POSTGRES_USER
+              value: ${db_user}
+            - name: RABBIT_HOST
+              value: rabbitmq
+            - name: RABBIT_PORT
+              value: "5672"
+            - name: RABBIT_PW
+              value: softserve
+            - name: RABBIT_QUEUE
+              value: restapi
+            - name: RABBIT_USER
+              value: devops
+          image: gcr.io/${TF_VAR_project}/rabbit-to-db
+          name: rabbit-to-db
+          resources: {}
+      restartPolicy: Always
+status: {}
+
